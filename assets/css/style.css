@@ -2,15 +2,24 @@ body {
     font-family: sans-serif;
 }
 
+button {
+    margin: 8px;
+}
+
 .timer {
     display: inline;
 }
 
-.start-screen {
+#content {
     text-align: center;
 }
 
 .start-screen p {
     margin: auto;
     width: 50%;
+}
+
+.question-screen button {
+    display: block;
+    margin: 10px auto;
 }
