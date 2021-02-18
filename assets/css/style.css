@@ -1,25 +1,68 @@
 body {
     font-family: sans-serif;
+    margin: 0;
 }
 
 button {
     margin: 8px;
+    padding: 10px;
+    color: white;
+    background: #3e9cbf;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+}
+button:hover {
+    background: #f17c37;
+}
+button:active {
+    background: #f26d50;
+}
+
+.top {
+    border-bottom: black solid 1px;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .timer {
     display: inline;
+    text-align: center;
+    margin-right: 8px;
+}
+
+.timer span {
+    display: block;
+}
+
+#timer {
+    font-size: 24px;
 }
 
 #content {
     text-align: center;
+    width: 50%;
+    margin: auto;
 }
 
 .start-screen p {
-    margin: auto;
-    width: 50%;
+
+
 }
 
 .question-screen button {
     display: block;
     margin: 10px auto;
+    width: 100%;
+}
+
+
+
+/* Media Queries */
+
+@media only screen and (max-width: 660px) {
+    #content {
+        width: 90%;
+    }
 }

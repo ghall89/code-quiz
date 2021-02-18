@@ -7,8 +7,6 @@ var timeLeft;
 var pageContent = document.querySelector("#content");
 var timerDisplay = document.querySelector("#timer");
 
-
-
 // Create start screen
 function startScreen() {
 
@@ -48,6 +46,7 @@ function startQuiz() {
 // Clear content to prepare for new content
 function clearContent() {
     pageContent.innerHTML = "";
+    pageContent.className = "start-screen";
 }
 
 // Timer function
@@ -128,11 +127,11 @@ function quizQuestion() {
 // Validate and either move on to next question or subtract from timer
 function validateAnswer(inputAnswer, correctAnswer) {
     if (inputAnswer === correctAnswer) {
-        alert("You are correct!");
+        console.log("You are correct!");
         q++;
         quizQuestion();
     } else {
-        alert("You are wrong!");
+        console.log("You are wrong!");
         timeLeft = timeLeft - 10;
     }
 }
@@ -183,12 +182,12 @@ startScreen();
 // Quiz questions 
 function quizData() {
     var quizArr = [{
-            "question": "This is the first question!",
-            "answer1": "Answer 1",
-            "answer2": "Answer 2",
-            "answer3": "Answer 3",
-            "answer4": "Answer 4",
-            "correctAnswer": 1
+            "question": "How do you select a class in a CSS file?",
+            "answer1": "#class-name",
+            "answer2": ".class-name",
+            "answer3": "$class-name",
+            "answer4": "~class-name",
+            "correctAnswer": 2
         },
         {
             "question": "This is the second question!",
@@ -197,6 +196,14 @@ function quizData() {
             "answer3": "Answer 3",
             "answer4": "Answer 4",
             "correctAnswer": 3
+        },
+        {
+            "question": "This is the third question!",
+            "answer1": "Answer 1",
+            "answer2": "Answer 2",
+            "answer3": "Answer 3",
+            "answer4": "Answer 4",
+            "correctAnswer": 2
         }
     ];
 
