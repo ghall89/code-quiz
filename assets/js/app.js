@@ -3,6 +3,7 @@ var quizArr = quizData();
 var q;
 var timeLeft;
 var gotItRight;
+var highScores = [];
 
 // Intial querey selectors
 var pageContent = document.querySelector("#content");
@@ -170,13 +171,34 @@ function youWin() {
     var winTextEl = document.createElement("p");
     winTextEl.textContent = "You finished the quiz with a score of " + finalScore + "!";
 
+    var highScoreEl = document.createElement("div");
+    var nameInputEl = document.createElement("input");
+    nameInputEl.id = "name-input";
+    var submitScoreEl = document.createElement("button");
+    submitScoreEl.id = "submit-score";
+    submitScoreEl.textContent = "Submit Score"
+
     var playBtnEl = document.createElement("button");
     playBtnEl.id = "play-again";
     playBtnEl.textContent = "Play Again!";
 
     pageContent.appendChild(winTitleEl);
     pageContent.appendChild(winTextEl);
+    pageContent.appendChild(highScoreEl);
+    highScoreEl.appendChild(nameInputEl);
+    highScoreEl.appendChild(submitScoreEl);
     pageContent.appendChild(playBtnEl);
+
+    document.querySelector("#submit-score").addEventListener("click", function(){
+        recordHighScore(finalScore);
+        highScoreEl.removeChild(nameInputEl);
+        highScoreEl.removeChild(submitScoreEl);
+
+        var submitConfirmEl = document.createElement("h3");
+        submitConfirmEl.textContent = "Your highscore has been submitted!"
+
+        highScoreEl.appendChild(submitConfirmEl);
+    })
 
     document.querySelector("#play-again").addEventListener("click", function () {
         startQuiz();
@@ -200,6 +222,28 @@ function youLose() {
     document.querySelector("#play-again").addEventListener("click", function () {
         startQuiz();
     });
+}
+
+// Load high scores (if applicable) and save new scores to localStorage
+function recordHighScore(finalScore) {
+
+    highScores = localStorage.getItem("highScores", highScores);
+
+    var name = document.querySelector("#name-input").value;
+
+    var highScoreObj = {
+        "name": name,
+        "score": finalScore
+    };
+    if (highScores === null) {
+        highScores = [];
+    } else {
+        highScores = JSON.parse(highScores);
+    }
+    highScores.push(highScoreObj);
+
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+
 }
 
 // Initialize Page
