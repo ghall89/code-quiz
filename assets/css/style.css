@@ -1,0 +1,16 @@
+body {
+    font-family: sans-serif;
+}
+
+.timer {
+    display: inline;
+}
+
+.start-screen {
+    text-align: center;
+}
+
+.start-screen p {
+    margin: auto;
+    width: 50%;
+}
