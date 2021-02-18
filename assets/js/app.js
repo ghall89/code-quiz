@@ -38,7 +38,7 @@ function startScreen() {
 
 // Start Quiz
 function startQuiz() {
-    timeLeft = 40;
+    timeLeft = 99;
     q = 0;
     timer();
     quizQuestion();
@@ -53,6 +53,7 @@ function clearContent() {
 // Timer function
 function timer() {
     timerDisplay.textContent = timeLeft;
+    timeLeft--;
     var countdown = setInterval(function () {
 
         if (quizArr.length <= q) {
@@ -60,8 +61,8 @@ function timer() {
         }
 
         if (timeLeft > 0) {
-            timeLeft--;
             timerDisplay.textContent = timeLeft;
+            timeLeft--;
         } else {
             youLose();
             clearInterval(countdown);
@@ -161,11 +162,13 @@ function displayFeedback() {
 function youWin() {
     clearContent();
 
+    finalScore = timeLeft;
+
     var winTitleEl = document.createElement("h1");
     winTitleEl.textContent = "You Win!"
 
     var winTextEl = document.createElement("p");
-    winTextEl.textContent = "You finished the quiz with a score of " + timeLeft + "!";
+    winTextEl.textContent = "You finished the quiz with a score of " + finalScore + "!";
 
     var playBtnEl = document.createElement("button");
     playBtnEl.id = "play-again";
