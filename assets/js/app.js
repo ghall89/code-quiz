@@ -190,7 +190,15 @@ function youWin() {
     pageContent.appendChild(playBtnEl);
 
     document.querySelector("#submit-score").addEventListener("click", function(){
-        recordHighScore(finalScore);
+
+        var name = document.querySelector("#name-input").value;
+
+        if (name == "") {
+            alert("Please enter a name!");
+            return;
+        }
+    
+        recordHighScore(finalScore, name);
         highScoreEl.removeChild(nameInputEl);
         highScoreEl.removeChild(submitScoreEl);
 
@@ -225,11 +233,9 @@ function youLose() {
 }
 
 // Load high scores (if applicable) and save new scores to localStorage
-function recordHighScore(finalScore) {
+function recordHighScore(finalScore, name) {
 
     highScores = localStorage.getItem("highScores", highScores);
-
-    var name = document.querySelector("#name-input").value;
 
     var highScoreObj = {
         "name": name,
