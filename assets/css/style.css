@@ -16,6 +16,7 @@ button {
     margin: 8px;
     padding: 10px;
     font-family: 'Varela Round', sans-serif;
+    font-size: 13px;
     color: white;
     background: var(--blue);
     border: none;
@@ -31,6 +32,8 @@ button:active {
 
 input {
     padding: 10px;
+    font-size: 13px;
+    font-family: 'Varela Round', sans-serif;
 }
 
 .top {
