@@ -19,6 +19,7 @@ button:active {
     background: #f26d50;
 }
 
+
 .top {
     border-bottom: black solid 1px;
     padding: 8px;
@@ -46,18 +47,19 @@ button:active {
     margin: auto;
 }
 
-.start-screen p {
-
-
-}
-
 .question-screen button {
     display: block;
     margin: 10px auto;
     width: 100%;
 }
 
+.right-text {
+    color: #57c94c;
+}
 
+.wrong-text {
+    color: #f26d50;
+}
 
 /* Media Queries */
 
