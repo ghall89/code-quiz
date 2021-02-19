@@ -40,6 +40,7 @@ function startScreen() {
 function startQuiz() {
     timeLeft = 99;
     q = 0;
+    highScoreBtnEl.style.visibility = "hidden";
     timer();
     quizQuestion();
 }
@@ -161,6 +162,7 @@ function displayFeedback() {
 // Display winning screen and ask player to try again
 function youWin() {
     clearContent();
+    highScoreBtnEl.style.visibility = "visible";
 
     finalScore = timeLeft;
 
@@ -224,6 +226,8 @@ function youWin() {
 // Display losing screen and ask player to try again
 function youLose() {
     clearContent();
+    highScoreBtnEl.style.visibility = "visible";
+
 
     var loseTitleEl = document.createElement("h1");
     loseTitleEl.textContent = "You Lose!"
