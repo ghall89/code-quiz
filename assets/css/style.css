@@ -57,6 +57,10 @@ input {
     display: block;
 }
 
+.times-low {
+    color: var(--salmon);
+}
+
 #timer {
     font-size: 24px;
 }

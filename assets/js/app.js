@@ -41,6 +41,7 @@ function startQuiz() {
     timeLeft = 99;
     q = 0;
     highScoreBtnEl.style.visibility = "hidden";
+    timerDisplay.className = "";
     timer();
     quizQuestion();
 }
@@ -61,7 +62,11 @@ function timer() {
             clearInterval(countdown);
         }
 
-        if (timeLeft > 0) {
+        if (timeLeft <= 15){
+            timerDisplay.className = "times-low";
+        }
+
+        if (timeLeft >= 0) {
             timerDisplay.textContent = timeLeft;
             timeLeft--;
         } else {
