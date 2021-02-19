@@ -8,15 +8,25 @@ highScoreBtnEl.addEventListener("click", function(){
         highScoreBtnEl.textContent = "Back";
         clearContent();
 
-        highScoreTitleEl = document.createElement("h1");
+        var highScoreTitleEl = document.createElement("h1");
         highScoreTitleEl.textContent = "High Scores";
 
-        highScoreDivEl = document.createElement("div");
-        highScoreDivEl.className = "high-score-table"
+
+        var highScoreHeadEl = document.createElement("div");
+        highScoreHeadEl.className = "table-object";
+
+
+        var scoreNameEl = document.createElement("span");
+        scoreNameEl.textContent = "Name";
+        var scoreEl = document.createElement("span");
+        scoreEl.textContent = "Score";
 
 
         pageContent.appendChild(highScoreTitleEl);
-        pageContent.appendChild(highScoreDivEl);
+        pageContent.appendChild(highScoreHeadEl);
+        highScoreHeadEl.appendChild(scoreNameEl);
+        highScoreHeadEl.appendChild(scoreEl);
+
 
         displayHighScores();
 
@@ -30,9 +40,26 @@ highScoreBtnEl.addEventListener("click", function(){
 
 
 function displayHighScores() {
+
     var topHighScores = localStorage.getItem("highScores");
     topHighScores = JSON.parse(topHighScores);
-    console.log(topHighScores);
+    topHighScores = topHighScores.sort(function(a, b){
+        return b.score - a.score;
+    });
+
+    var highScoreDivEl = document.createElement("div");
+    highScoreDivEl.className = "high-score-table"
+    pageContent.appendChild(highScoreDivEl);
+
+
+    if(!topHighScores) {
+        var noDataEl = document.createElement("h3");
+        noDataEl.textContent = "No High Scores to Display";
+        highScoreDivEl.appendChild(noDataEl);
+        return;
+    }
+
+
 
     for (i = 0; i < 5; i++) {
 
@@ -40,10 +67,11 @@ function displayHighScores() {
             return;
         }
 
-        scoreEntryEl = document.createElement("div");
-        scoreNameEl = document.createElement("span");
+        var scoreEntryEl = document.createElement("div");
+        scoreEntryEl.className = "table-object";
+        var scoreNameEl = document.createElement("span");
         scoreNameEl.textContent = topHighScores[i].name;
-        scoreEl = document.createElement("span");
+        var scoreEl = document.createElement("span");
         scoreEl.textContent = topHighScores[i].score;
 
         highScoreDivEl.appendChild(scoreEntryEl);
