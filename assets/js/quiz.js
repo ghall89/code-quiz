@@ -15,27 +15,27 @@ var quizArr = [{
     "correctAnswer": 3
 },
 {
-    "question": "This is the third question!",
-    "answer1": "Answer 1",
-    "answer2": "Answer 2",
-    "answer3": "Answer 3",
-    "answer4": "Answer 4",
-    "correctAnswer": 2
+    "question": "Which of the following is NOT a valid CSS property?",
+    "answer1": "text-size",
+    "answer2": "border",
+    "answer3": "width",
+    "answer4": "padding",
+    "correctAnswer": 1
 },
 {
-    "question": "This is the fourth question!",
-    "answer1": "Answer 1",
-    "answer2": "Answer 2",
-    "answer3": "Answer 3",
-    "answer4": "Answer 4",
-    "correctAnswer": 2
+    "question": "What is an array in JavaScript?",
+    "answer1": "Code that styles the page dynamically",
+    "answer2": "A list of files in your project",
+    "answer3": "A list of named properties",
+    "answer4": "An variable object that stores a list of values",
+    "correctAnswer": 4
 },
 {
-    "question": "This is the fifth question!",
-    "answer1": "Answer 1",
-    "answer2": "Answer 2",
-    "answer3": "Answer 3",
-    "answer4": "Answer 4",
+    "question": "Which of the following is NOT proper usage of 'localStorage'?",
+    "answer1": "localStorage.setItem('key', 'value');",
+    "answer2": "localStorage.saveObject('value');",
+    "answer3": "var lastname = localStorage.getItem('key');",
+    "answer4": "localStorage.removeItem('key');",
     "correctAnswer": 2
 }
 ];
