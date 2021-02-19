@@ -139,6 +139,7 @@ function validateAnswer(inputAnswer, correctAnswer) {
         displayFeedback();
     } else {
         timeLeft = timeLeft - 10;
+        timerDisplay.textContent = timeLeft;
         gotItRight = false;
         displayFeedback();
     }
@@ -185,6 +186,7 @@ function youWin() {
 
     var nameInputEl = document.createElement("input");
     nameInputEl.id = "name-input";
+    nameInputEl.setAttribute("placeholder", "Aragorn")
     var submitScoreEl = document.createElement("button");
     submitScoreEl.id = "submit-score";
     submitScoreEl.textContent = "Submit Score"

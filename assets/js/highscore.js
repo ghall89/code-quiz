@@ -11,22 +11,18 @@ highScoreBtnEl.addEventListener("click", function () {
         var highScoreTitleEl = document.createElement("h1");
         highScoreTitleEl.textContent = "High Scores";
 
-
         var highScoreHeadEl = document.createElement("div");
         highScoreHeadEl.className = "table-object";
-
 
         var scoreNameEl = document.createElement("span");
         scoreNameEl.textContent = "Name";
         var scoreEl = document.createElement("span");
         scoreEl.textContent = "Score";
 
-
         pageContent.appendChild(highScoreTitleEl);
         pageContent.appendChild(highScoreHeadEl);
         highScoreHeadEl.appendChild(scoreNameEl);
         highScoreHeadEl.appendChild(scoreEl);
-
 
         displayHighScores();
 
@@ -37,7 +33,6 @@ highScoreBtnEl.addEventListener("click", function () {
         startScreen();
     }
 });
-
 
 function displayHighScores() {
 
