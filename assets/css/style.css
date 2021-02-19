@@ -12,6 +12,8 @@ body {
     margin: 0;
 }
 
+/* Interface styles */
+
 button {
     margin: 8px;
     padding: 10px;
@@ -36,8 +38,10 @@ input {
     font-family: 'Varela Round', sans-serif;
 }
 
+/* Top bar styles */
+
 .top {
-    border-bottom: black solid 1px;
+    border-bottom: grey solid 1px;
     padding: 8px;
     display: flex;
     justify-content: space-between;
@@ -57,11 +61,15 @@ input {
     font-size: 24px;
 }
 
+/* Style for main content div */
+
 #content {
     text-align: center;
     width: 50%;
     margin: auto;
 }
+
+/* Question styles */
 
 .question-screen button {
     display: block;
@@ -75,6 +83,18 @@ input {
 
 .wrong-text {
     color: var(--salmon);
+}
+
+/* High Score Table Styles */
+
+.high-score-table {
+    border-top: black solid 1px;
+}
+
+.high-score-table div {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
 }
 
 /* Media Queries */

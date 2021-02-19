@@ -1,5 +1,4 @@
 // Initialize quiz data and global variables
-var quizArr = quizData();
 var q;
 var timeLeft;
 var gotItRight;
@@ -153,7 +152,7 @@ function displayFeedback() {
 
     pageContent.appendChild(wrongTextEl);
 
-    var timeOut = setInterval(function(){
+    var timeOut = setInterval(function () {
         wrongTextEl.remove();
         clearInterval(timeOut);
     }, 1000);
@@ -171,7 +170,12 @@ function youWin() {
     var winTextEl = document.createElement("p");
     winTextEl.textContent = "You finished the quiz with a score of " + finalScore + "!";
 
+    var winText2El = document.createElement("p");
+    winText2El.textContent = "Enter your name to save your high score.";
+
     var highScoreEl = document.createElement("div");
+    var highScoreFormEl = document.createElement("form");
+
     var nameInputEl = document.createElement("input");
     nameInputEl.id = "name-input";
     var submitScoreEl = document.createElement("button");
@@ -184,12 +188,16 @@ function youWin() {
 
     pageContent.appendChild(winTitleEl);
     pageContent.appendChild(winTextEl);
+    pageContent.appendChild(winText2El);
     pageContent.appendChild(highScoreEl);
-    highScoreEl.appendChild(nameInputEl);
-    highScoreEl.appendChild(submitScoreEl);
+    highScoreEl.appendChild(highScoreFormEl);
+    highScoreFormEl.appendChild(nameInputEl);
+    highScoreFormEl.appendChild(submitScoreEl);
     pageContent.appendChild(playBtnEl);
 
-    document.querySelector("#submit-score").addEventListener("click", function(){
+    document.querySelector("#submit-score").addEventListener("click", function (e) {
+
+        e.preventDefault();
 
         var name = document.querySelector("#name-input").value;
 
@@ -197,12 +205,12 @@ function youWin() {
             alert("Please enter a name!");
             return;
         }
-    
+
         recordHighScore(finalScore, name);
-        highScoreEl.removeChild(nameInputEl);
-        highScoreEl.removeChild(submitScoreEl);
+        highScoreEl.removeChild(highScoreFormEl);
 
         var submitConfirmEl = document.createElement("h3");
+        submitConfirmEl.className = "right-text";
         submitConfirmEl.textContent = "Your highscore has been submitted!"
 
         highScoreEl.appendChild(submitConfirmEl);
@@ -254,34 +262,3 @@ function recordHighScore(finalScore, name) {
 
 // Initialize Page
 startScreen();
-
-// Quiz questions 
-function quizData() {
-    var quizArr = [{
-            "question": "How do you select a class in a CSS file?",
-            "answer1": "#class-name",
-            "answer2": ".class-name",
-            "answer3": "$class-name",
-            "answer4": "~class-name",
-            "correctAnswer": 2
-        },
-        {
-            "question": "How would you link a CSS file to your HTML?",
-            "answer1": "<link style='./assets/css/style.css'>",
-            "answer2": "<style href='./assets/css/style.css'>",
-            "answer3": "<link rel='stylesheet' href='./assets/css/style.css'>",
-            "answer4": "<css='./assets/css/style.css'>",
-            "correctAnswer": 3
-        },
-        {
-            "question": "This is the third question!",
-            "answer1": "Answer 1",
-            "answer2": "Answer 2",
-            "answer3": "Answer 3",
-            "answer4": "Answer 4",
-            "correctAnswer": 2
-        }
-    ];
-
-    return quizArr;
-}
